@@ -88,9 +88,6 @@ public class FeedActivity extends AppCompatActivity {
                     return;
                 }
 
-                for (Post post : posts) {
-                }
-
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
             }

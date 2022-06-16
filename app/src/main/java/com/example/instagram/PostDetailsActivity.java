@@ -10,9 +10,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Date;
+
 public class PostDetailsActivity extends AppCompatActivity {
 
     TextView tvUsername;
+    TextView tvUsername2;
     ImageView ivPic;
     TextView tvCaption;
     TextView tvTimestamp;
@@ -25,14 +28,20 @@ public class PostDetailsActivity extends AppCompatActivity {
         Post post = getIntent().getParcelableExtra("post");
 
         tvUsername = findViewById(R.id.tvUsername);
+        tvUsername2 = findViewById(R.id.tvUsername2);
         ivPic = findViewById(R.id.ivPic);
         tvCaption = findViewById(R.id.tvCaption);
         tvTimestamp = findViewById(R.id.tvTimestap);
 
-        tvUsername.setText(post.KEY_USER);
-        tvCaption.setText(post.KEY_DESCRIPTION);
-       // tvTimestamp.setText(post.getUser().getUsername());
+        String uname = post.getUser().getUsername();
+        tvUsername.setText(uname);
+        tvUsername2.setText(uname);
+        tvCaption.setText(post.getDescription());
 
-        Glide.with(this).load(post.KEY_IMAGE).apply(new RequestOptions().centerCrop().transform(new RoundedCorners(10))).into(ivPic);
+        Date createdAt = post.getCreatedAt();
+        String timeAgo = Post.calculateTimeAgo(createdAt);
+        tvTimestamp.setText(timeAgo);
+
+        Glide.with(this).load(post.getImage().getUrl()).apply(new RequestOptions().centerCrop().transform(new RoundedCorners(10))).into(ivPic);
     }
 }
