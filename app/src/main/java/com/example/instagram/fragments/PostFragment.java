@@ -1,5 +1,6 @@
 package com.example.instagram.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,13 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.instagram.LoginActivity;
 import com.example.instagram.Post;
 import com.example.instagram.PostsAdapter;
 import com.example.instagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +52,17 @@ public class PostFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryPosts();
+
+        Button logoutButton = view.findViewById(R.id.logoutBtn);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOutInBackground();
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                goLoginActivity();
+            }
+        });
     }
 
     protected void queryPosts() {
@@ -65,5 +80,10 @@ public class PostFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+    }
+
+    private void goLoginActivity() {
+        Intent i = new Intent(getContext(), LoginActivity.class);
+        startActivity(i);
     }
 }
