@@ -55,27 +55,10 @@ public class FeedActivity extends AppCompatActivity {
 
     public void fetchTimelineAsync(int page) {
         adapter.clear();
-        //adapter.addAll(allPosts);
         queryPosts();
         swipeContainer.setRefreshing(false);
     }
 
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
-
-        rvPosts = findViewById(R.id.rvPosts);
-
-        allPosts = new ArrayList<>();
-        adapter = new PostsAdapter(this, allPosts);
-
-        rvPosts.setAdapter(adapter);
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
-        queryPosts();
-    }
-*/
     private void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);

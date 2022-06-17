@@ -9,11 +9,12 @@
 
     <FrameLayout
         android:id="@+id/flContainer"
-        android:layout_width="423dp"
-        android:layout_height="670dp"
+        android:layout_width="399dp"
+        android:layout_height="692dp"
         android:layout_above="@id/bottomNavigation"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation" />
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        tools:layout_editor_absoluteX="11dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

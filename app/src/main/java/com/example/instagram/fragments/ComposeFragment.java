@@ -44,12 +44,10 @@ public class ComposeFragment extends Fragment {
     String photoFileName = "photo.jpg";
     File photoFile;
 
-    Button logoutButton;
     EditText etDescription;
     Button takePicButton;
     ImageView ivPostImage;
     Button postButton;
-    Button feedButton;
 
     public ComposeFragment() {
     }
@@ -68,17 +66,6 @@ public class ComposeFragment extends Fragment {
         takePicButton = view.findViewById(R.id.picBtn);
         ivPostImage = view.findViewById(R.id.ivPicture);
         postButton = view.findViewById(R.id.postBtn);
-        feedButton = view.findViewById(R.id.feedBtn);
-        logoutButton = view.findViewById(R.id.logOutBtn);
-
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser.logOutInBackground();
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                goLoginActivity();
-            }
-        });
 
         takePicButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,13 +92,6 @@ public class ComposeFragment extends Fragment {
 
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(dsc, currentUser, photoFile);
-            }
-        });
-
-        feedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goFeedActivity();
             }
         });
     }
@@ -164,15 +144,5 @@ public class ComposeFragment extends Fragment {
                 ivPostImage.setImageResource(0);
             }
         });
-    }
-
-    private void goLoginActivity() {
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        startActivity(i);
-    }
-
-    private void goFeedActivity() {
-        Intent i = new Intent(getContext(), FeedActivity.class);
-        startActivity(i);
     }
 }

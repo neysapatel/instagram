@@ -27,4 +27,22 @@ public class ProfileFragment extends PostFragment {
             }
         });
     }
+
+    /*
+    logoutButton = view.findViewById(R.id.logOutBtn);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ParseUser.logOutInBackground();
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            goLoginActivity();
+        }
+    });
+
+    private void goLoginActivity() {
+        Intent i = new Intent(getContext(), LoginActivity.class);
+        startActivity(i);
+    }
+     */
 }

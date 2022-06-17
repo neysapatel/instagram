@@ -7,59 +7,68 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ComposeFragment">
 
-    <Button
-        android:id="@+id/logOutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="92dp"
-        android:text="Log out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <EditText
         android:id="@+id/etDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="46dp"
         android:ems="10"
         android:hint="caption this..."
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ivPicture"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivPicture"
+        app:layout_constraintTop_toBottomOf="@+id/ivPicture"
+        app:layout_constraintVertical_bias="0.133" />
 
     <Button
         android:id="@+id/picBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:text="Take Picture"
-        app:layout_constraintTop_toBottomOf="@+id/etDescription"
-        tools:layout_editor_absoluteX="53dp" />
+        app:layout_constraintEnd_toEndOf="@+id/ivPicture"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ivPicture"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
         android:id="@+id/ivPicture"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/picBtn"
-        tools:layout_editor_absoluteX="44dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/postBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="40dp"
         android:text="Post!"
-        app:layout_constraintTop_toBottomOf="@+id/ivPicture"
-        tools:layout_editor_absoluteX="87dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etDescription"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etDescription"
+        app:layout_constraintTop_toBottomOf="@+id/etDescription"
+        app:layout_constraintVertical_bias="0.933" />
 
-    <Button
-        android:id="@+id/feedBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="go to your feed!"
-        app:layout_constraintTop_toBottomOf="@+id/postBtn"
-        tools:layout_editor_absoluteX="104dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="282dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="30dp"
+        android:text="n e w   p o s t"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
