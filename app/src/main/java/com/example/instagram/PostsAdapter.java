@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseFile;
 
 import java.util.Date;
@@ -57,6 +58,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvDescription;
         private TextView tvUsername2;
         private TextView tvTimestamp;
+        private ImageView ivProfilPic;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +67,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvTimestamp = itemView.findViewById(R.id.tvTimestap);
+            ivProfilPic = itemView.findViewById(R.id.ivProfilePic);
         }
 
         public void bind(Post post) {
@@ -74,6 +77,11 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ParseFile image = post.getImage();
             if (image != null) {
                 Glide.with(context).load(image.getUrl()).into(ivImage);
+            }
+
+            ParseFile profilePic = post.getUser().getParseFile("profilePic");
+            if (profilePic != null) {
+                Glide.with(context).load(profilePic.getUrl()).apply(RequestOptions.circleCropTransform()).into(ivProfilPic);
             }
 
             Date createdAt = post.getCreatedAt();
