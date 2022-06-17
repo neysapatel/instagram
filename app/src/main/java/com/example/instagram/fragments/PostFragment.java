@@ -52,17 +52,6 @@ public class PostFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         queryPosts();
-
-        Button logoutButton = view.findViewById(R.id.logoutBtn);
-
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ParseUser.logOutInBackground();
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                goLoginActivity();
-            }
-        });
     }
 
     protected void queryPosts() {
@@ -80,10 +69,5 @@ public class PostFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
-    }
-
-    private void goLoginActivity() {
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        startActivity(i);
     }
 }

@@ -17,4 +17,9 @@
         android:icon="@drawable/instagram_user_filled_24"
         android:title="Profile"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/media_option_button"
+        android:title="Settings"
+        app:showAsAction="always" />
 </menu>

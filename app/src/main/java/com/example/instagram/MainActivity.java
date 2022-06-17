@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.instagram.fragments.ComposeFragment;
 import com.example.instagram.fragments.PostFragment;
 import com.example.instagram.fragments.ProfileFragment;
+import com.example.instagram.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -57,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
-                    default:
                         fragment = new ProfileFragment();
+                        break;
+                    default:
+                        fragment = new SettingsFragment();
                         break;
                 }
                 fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
