@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.instagram.FeedActivity;
@@ -79,6 +80,9 @@ public class ComposeFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                ProgressBar pb = (ProgressBar) getView().findViewById(R.id.pbLoading);
+                pb.setVisibility(ProgressBar.VISIBLE);
+
                 String dsc = etDescription.getText().toString();
                 if (dsc.isEmpty()) {
                     Toast.makeText(getContext(), "Please enter a caption!", Toast.LENGTH_SHORT).show();
@@ -92,6 +96,8 @@ public class ComposeFragment extends Fragment {
 
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(dsc, currentUser, photoFile);
+
+                pb.setVisibility(ProgressBar.INVISIBLE);
             }
         });
     }

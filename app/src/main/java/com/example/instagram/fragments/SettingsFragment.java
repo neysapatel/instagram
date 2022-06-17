@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -146,6 +147,9 @@ public class SettingsFragment extends Fragment {
     }
 
     private void saveProfilePic(ParseUser currentUser, File photoFile) {
+        ProgressBar pb = (ProgressBar) getView().findViewById(R.id.pbLoading);
+        pb.setVisibility(ProgressBar.VISIBLE);
+
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] bitmapData = bos.toByteArray();
 
@@ -162,6 +166,7 @@ public class SettingsFragment extends Fragment {
                 }
             }
         });
+        pb.setVisibility(ProgressBar.INVISIBLE);
     }
 
     private void goLoginActivity() {

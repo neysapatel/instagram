@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
@@ -61,6 +62,9 @@ public class FeedActivity extends AppCompatActivity {
         scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
+                pb.setVisibility(ProgressBar.VISIBLE);
+
                 ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
                 query.include(Post.KEY_USER);
                 query.addDescendingOrder("createdAt");
@@ -75,6 +79,7 @@ public class FeedActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                 });
+                pb.setVisibility(ProgressBar.INVISIBLE);
             }
         };
 
@@ -88,6 +93,8 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     private void queryPosts() {
+        ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
+        pb.setVisibility(ProgressBar.VISIBLE);
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setLimit(20);
@@ -103,5 +110,6 @@ public class FeedActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        pb.setVisibility(ProgressBar.INVISIBLE);
     }
 }
