@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.171" />
+        <entry key="app/src/main/res/drawable/ig_written_background.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.171" />
         <entry key="app/src/main/res/layout/activity_feed.xml" value="0.10464935302734375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
@@ -17,6 +18,7 @@
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.4203059775247159" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.48591308593750004" />
         <entry key="app/src/main/res/layout/item_post2.xml" value="0.15982776089159068" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.1" />
         <entry key="app/src/main/res/menu/logout_meu.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.38665873209635415" />
         <entry key="app/src/main/res/xml/fileprovider.xml" value="0.1" />
