@@ -12,6 +12,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="48dp"
         android:text="username"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,8 +21,8 @@
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:scaleType="centerCrop"
         android:layout_marginTop="12dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvUsername"
@@ -32,8 +33,8 @@
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
         android:text="caption"
         app:layout_constraintStart_toEndOf="@+id/tvUsername2"
         app:layout_constraintTop_toBottomOf="@+id/ivImage" />
@@ -51,7 +52,7 @@
         android:id="@+id/tvUsername2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="username"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="@+id/ivProfilePic"
@@ -65,4 +66,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="6dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/ivLike"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvUsername2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ufi_heart" />
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="x likes"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+        app:layout_constraintStart_toStartOf="@+id/tvDescription" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

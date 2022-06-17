@@ -2,9 +2,11 @@ package com.example.instagram;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
+
+import org.w3c.dom.Text;
 
 import java.util.Date;
 import java.util.List;
@@ -59,6 +64,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         private TextView tvUsername2;
         private TextView tvTimestamp;
         private ImageView ivProfilPic;
+        private ImageButton ibLike;
+        private TextView tvLikes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +75,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription = itemView.findViewById(R.id.tvDescription);
             tvTimestamp = itemView.findViewById(R.id.tvTimestap);
             ivProfilPic = itemView.findViewById(R.id.ivProfilePic);
+            ibLike = itemView.findViewById(R.id.ivLike);
+            tvLikes = itemView.findViewById(R.id.tvLikes);
         }
 
         public void bind(Post post) {
@@ -87,6 +96,23 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             Date createdAt = post.getCreatedAt();
             String timeAgo = Post.calculateTimeAgo(createdAt);
             tvTimestamp.setText(timeAgo);
+
+            int likes = 0;
+            String numLikes = post.getString("likes");
+            if (numLikes != null) {
+                likes = new Integer(post.getString("likes"));
+            }
+            tvLikes.setText(likes + " likes");
+
+            int updatedLikes = likes + 1;
+            ibLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ParseUser.getCurrentUser().put("likes", updatedLikes);
+                    tvLikes.setText(updatedLikes + " likes");
+                    ibLike.setImageResource(R.drawable.ufi_heart_active);
+                }
+            });
 
             ivImage.setOnClickListener(new View.OnClickListener() {
                 @Override

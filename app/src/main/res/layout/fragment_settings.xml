@@ -32,6 +32,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="172dp"
         android:text="username"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/ivProfilePic"
         app:layout_constraintTop_toTopOf="parent" />
 
