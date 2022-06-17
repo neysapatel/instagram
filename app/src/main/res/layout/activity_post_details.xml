@@ -31,9 +31,10 @@
         android:id="@+id/tvCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="caption"
-        app:layout_constraintStart_toStartOf="@+id/ivPic"
+        app:layout_constraintStart_toEndOf="@+id/tvUsername2"
         app:layout_constraintTop_toBottomOf="@+id/ivPic" />
 
     <TextView
@@ -42,6 +43,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="x min ago"
-        app:layout_constraintStart_toStartOf="@+id/tvCaption"
+        app:layout_constraintStart_toStartOf="@+id/tvUsername2"
         app:layout_constraintTop_toBottomOf="@+id/tvCaption" />
+
+    <TextView
+        android:id="@+id/tvUsername2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="username"
+        app:layout_constraintStart_toStartOf="@+id/ivPic"
+        app:layout_constraintTop_toBottomOf="@+id/ivPic" />
 </androidx.constraintlayout.widget.ConstraintLayout>
