@@ -29,8 +29,8 @@ public class PostDetailsActivity extends AppCompatActivity {
 
         tvUsername = findViewById(R.id.tvUsername);
         tvUsername2 = findViewById(R.id.tvUsername2);
-        ivPic = findViewById(R.id.ivPic);
-        tvCaption = findViewById(R.id.tvCaption);
+        ivPic = findViewById(R.id.ivImage);
+        tvCaption = findViewById(R.id.tvDescription);
         tvTimestamp = findViewById(R.id.tvTimestap);
 
         String uname = post.getUser().getUsername();
